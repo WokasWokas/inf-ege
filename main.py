@@ -11,7 +11,7 @@ def files_from_curdir(type: str, startwith: str) -> list[str]:
     else:
         path = os.path.curdir + f"\\var{type.split('[')[1]}"
     variables = []
-    for file in os.listdir():
+    for file in os.listdir(path):
         if file.startswith(startwith):
             variables.append(file)
     return variables
