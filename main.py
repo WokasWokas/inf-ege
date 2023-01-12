@@ -1,5 +1,6 @@
 from kernel.kernel import Core, Color
 from kernel.columner import Columner
+from importlib import reload
 import os
 
 columner = Columner()
@@ -26,6 +27,7 @@ def GetTaskList(var: int) -> None:
 
 def launch(var: int, task: int) -> None:
     module = __import__(f"var{var}.task{task}", fromlist=[f"var{var}"])
+    reload(module)
 
 if __name__ == "__main__":
     core = Core()
