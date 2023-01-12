@@ -8,14 +8,14 @@
 #                                          #
 ############################################
 #                                          #
-#   Y and (X -> W) and (-X -> (-W == Z))   #
+#   X and (Y <= Z) and (-Y <= (-Z == W))   #
 #                                          #
 ############################################
 #                                          #
 #            +   +   +   +   F             #
-#            0   0   -   -   1             #
-#            0   -   -   0   1             #
-#            1   1   1   -   1             #
+#            -   -   0   0   1             #
+#            -   0   0   -   1             #
+#            1   -   1   1   0             #
 #                                          #
 ############################################
 from itertools import product
@@ -25,7 +25,7 @@ columner = Columner()
 
 result = []
 for data in product(range(2), repeat=4):
-    if data[1] and (data[0] <= data[3]) and ((not data[0]) <= ((not data[3]) == data[2])):
+    if not (data[0] and (data[1] <= data[2]) and ((not data[1]) <= ((not data[2]) == data[3]))):
         result.append(data)
 
 print(columner(["x", "y", "z", "w"], result))
