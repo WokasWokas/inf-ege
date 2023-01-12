@@ -11,8 +11,8 @@ def GetVarList() -> None:
         if file.startswith("var"):
             variables.append(file)
     print(f"{Color.FGCyan}  [~] Variables:")
-    for i in range(variables.__len__()):
-        print(f"  [{i}] {variables[i]}")
+    for elem in variables:
+        print(f"  {elem}")
     print(f"  [~] End variables message{Color.Reset}")
 
 def GetTaskList(var: int) -> None:
@@ -21,8 +21,8 @@ def GetTaskList(var: int) -> None:
         if file.startswith("task"):
             variables.append(file)
     print(f"{Color.FGCyan}  [~] Tasks from var-{var}:")
-    for i in range(variables.__len__()):
-        print(f"  [{i}] {variables[i]}")
+    for elem in variables:
+        print(f"  {elem}")
     print(f"  [~] End tasks message{Color.Reset}")
 
 def launch(var: int, task: int) -> None:
@@ -34,6 +34,6 @@ if __name__ == "__main__":
     
     core.add_command("var:list", "Get list with variables", GetVarList)
     core.add_command("task:list", "Get list with task from variable", GetTaskList)
-    core.add_command("task:launch", "Launch task", launch)
+    core.add_command("launch", "Launch task from variable", launch)
     
     core()
