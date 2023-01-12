@@ -5,7 +5,7 @@
 ##################################
 import os
 
-file = f"{os.path.dirname(__file__)}\\files\\17var02.txt"
+file = f"{os.path.dirname(__file__)}\\files\\task17.txt"
 data = []
 
 with open(file, "r") as file:
