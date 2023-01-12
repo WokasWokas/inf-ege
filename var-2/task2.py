@@ -19,8 +19,13 @@
 #                                          #
 ############################################
 from itertools import product
+from include.columner import Columner
 
-print(" x  y  z  w")
+columner = Columner()
+
+result = []
 for data in product(range(2), repeat=4):
     if data[1] and (data[0] <= data[3]) and ((not data[0]) <= ((not data[3]) == data[2])):
-        print(data)
+        result.append(data)
+
+print(columner(["x", "y", "z", "w"], result))
