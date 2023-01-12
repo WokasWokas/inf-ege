@@ -19,7 +19,7 @@
 #                                          #
 ############################################
 from itertools import product
-from include.columner import Columner
+from kernel.columner import Columner
 
 columner = Columner()
 

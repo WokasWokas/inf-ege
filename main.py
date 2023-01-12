@@ -1,5 +1,5 @@
-from include.columner import Columner
 from kernel.kernel import Core, Color
+from kernel.columner import Columner
 import os
 
 columner = Columner()
@@ -7,7 +7,7 @@ columner = Columner()
 def GetVarList() -> None:
     variables = []
     for file in os.listdir(os.path.curdir):
-        if file.startswith("var-"):
+        if file.startswith("var"):
             variables.append(file)
     print(f"{Color.FGCyan}  [~] Variables:")
     for i in range(variables.__len__()):
@@ -25,7 +25,7 @@ def GetTaskList(var: int) -> None:
     print(f"  [~] End tasks message{Color.Reset}")
 
 def launch(var: int, task: int) -> None:
-    os.system(f"python ./var-{var}/task{task}.py")
+    module = __import__(f"var{var}.task{task}", fromlist=[f"var{var}"])
 
 if __name__ == "__main__":
     core = Core()

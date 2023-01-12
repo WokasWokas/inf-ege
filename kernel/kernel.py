@@ -1,4 +1,4 @@
-from include.columner import Columner
+from kernel.columner import Columner
 
 class Color:
     Reset         = '\033[0m'
